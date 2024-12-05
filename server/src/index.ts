@@ -60,7 +60,7 @@ const main = async () => {
     const companyQueryDao = new CompanyMySqlQueryDaoAdapter(mysql2Adapter);
     const driverQueryDao = new DriverMySqlQueryDaoAdapter(mysql2Adapter);
 
-    registry.provide('create-company-use-case', new CreateNewCompanyUseCase(unitOfWorkMySQL2Factory, domainEventManager, logger, companyApplicationDao));
+    registry.provide('create-new-company-use-case', new CreateNewCompanyUseCase(unitOfWorkMySQL2Factory, domainEventManager, logger, companyApplicationDao));
     registry.provide('create-vehicle-use-case', new CreateVehicleUseCase(unitOfWorkMySQL2Factory, domainEventManager, logger, driverApplicationDao));
     registry.provide('register-new-driver-use-case', new RegisterNewDriverUseCase(unitOfWorkMySQL2Factory, domainEventManager, logger, companyApplicationDao));
 

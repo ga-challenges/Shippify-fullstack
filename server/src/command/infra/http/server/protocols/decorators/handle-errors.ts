@@ -8,7 +8,6 @@ import { InvalidEmailError } from '../../../../../@core/driver/domain/models/val
 import { InvalidPhoneError } from '../../../../../@core/driver/domain/models/value-objects/phone';
 import DriverNotFoundError from '../../../../../@core/vehicle/application/errors/driver-not-found';
 import { InvalidPlateDomainError } from '../../../../../@core/vehicle/domain/models/value-objects/Plate';
-import { inject } from '../../../../di/registry';
 import Controller from '../controller';
 import { HttpStatusCodeEnum } from '../http/status-code';
 
@@ -27,9 +26,6 @@ class VerifyStatusCodeType {
 }
 
 export class ErrorHandlingDecorator implements Controller {
-    @inject('internalServerErrorDao')
-    private readonly dao!: InternalServerErrorDao;
-
     constructor(private readonly controller: Controller) {}
 
     async handler(req: any): Promise<{ statusCode: HttpStatusCodeEnum; data: any; }> {
@@ -43,7 +39,6 @@ export class ErrorHandlingDecorator implements Controller {
             const responseStatusCode = (statusCode as any) || HttpStatusCodeEnum.InternalServerError;
 
             if(VerifyStatusCodeType.isInternalServerError(responseStatusCode) || !err.message) {
-                this.dao.save(err.message);
                 return {
                     statusCode: responseStatusCode,
                     data: undefined

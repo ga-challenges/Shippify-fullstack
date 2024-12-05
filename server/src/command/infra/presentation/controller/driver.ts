@@ -13,11 +13,18 @@ export default class DriverPresentationControllerFactory {
     @Route(HttpMethods.POST, '/driver')
     createVehiclePresentation() {
         return new ControllerValidationError({
-            handler: async (input) => await this.registerNewDriverUseCase.execute(input),
+            handler: async (input) => await this.registerNewDriverUseCase.execute({
+                avatarUrl: input.avatar_url,
+                name: input.name,
+                city: input.city,
+                companyId: input.company_id,
+                email: input.email,
+                phone: input.phone
+            }),
             schema: new ObjectSchema({
                 avatar_url: new StringSchema().required(),
                 name: new StringSchema().required().maxLength(40),
-                city: new StringSchema().required(),
+                city: new NumberSchema().required(),
                 company_id: new NumberSchema().required(),
                 email: new StringSchema().required().email(),
                 phone: new StringSchema().required()

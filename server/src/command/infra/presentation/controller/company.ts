@@ -14,7 +14,11 @@ export default class CompanyPresentationControllerFactory {
     @Route(HttpMethods.POST, '/company')
     createVehiclePresentation() {
         return new ControllerValidationError({
-            handler: async (input) => await this.createNewCompanyUseCase.execute(input),
+            handler: async (input) => await this.createNewCompanyUseCase.execute({
+                city: input.city,
+                name: input.name,
+                planType: input.plan_type
+            }),
             schema: new ObjectSchema({
                 city: new NumberSchema().required(),
                 name: new StringSchema().required().maxLength(20),

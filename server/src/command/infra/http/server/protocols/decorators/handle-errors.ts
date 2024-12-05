@@ -13,8 +13,7 @@ import Controller from '../controller';
 import { HttpStatusCodeEnum } from '../http/status-code';
 
 const errors: Record<number, any> = {
-    [HttpStatusCodeEnum.Conflict]: [CompanyNameAlreadyExists, DriverNotFoundError, CompanyNotFoundError],
-    [HttpStatusCodeEnum.UnprocessableEntity]: [InvalidAvatarUrlError, InvalidCityError, InvalidEmailError, InvalidPhoneError, InvalidStatusError, InvalidPlanTypeError, InvalidPlateDomainError]
+    [HttpStatusCodeEnum.UnprocessableEntity]: [CompanyNameAlreadyExists, DriverNotFoundError, CompanyNotFoundError, InvalidAvatarUrlError, InvalidCityError, InvalidEmailError, InvalidPhoneError, InvalidStatusError, InvalidPlanTypeError, InvalidPlateDomainError]
 };
 
 export interface InternalServerErrorDao {

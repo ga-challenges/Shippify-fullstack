@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - 3399:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - .docker/mysql:/var/lib/mysql
+    networks:
+      - appnetwork
+
+  app:
+    build:
+        context: .
+    container_name: app
+    ports:
+      - 8080:3000
+    depends_on:
+      - database
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: shippify
+      PORT: 3000
+    networks:
+      - appnetwork 
+
+networks:
+  appnetwork:
+    driver: bridge

@@ -1,0 +1,47 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "build": "npx tsc",
+    "lint": "eslint '**/*.{js,mjs,cjs,ts}'",
+    "dev": "npx tsx ./src/index.ts",
+    "lint:fix": "eslint '**/*.{js,mjs,cjs,ts}' --fix",
+    "start": "node ./dist/index",
+    "create:migration": "npx ts-node ./src/command/infra/database/mysql/config/migrations/create-migration.ts",
+    "run:migration": "npx ts-node ./src/command/infra/database/mysql/config/migrations/run-migration.ts",
+    "run:seeders": "npx ts-node ./src/command/infra/database/mysql/config/seeds/run-seeds.ts"
+  },
+  "keywords": [],
+  "author": "gustavoduartea",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/prompts": "^2.4.9",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
+    "jest": "^28.0.0",
+    "ts-jest": "^28.0.0",
+    "ts-node": "^10.9.2",
+    "tsc": "^2.0.4",
+    "tsx": "^4.19.2",
+    "typescript": "^4.9.0",
+    "typescript-eslint": "^8.15.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-async-errors": "^3.1.1",
+    "inquirer": "^10.1.8",
+    "mysql2": "^3.11.5",
+    "prompts": "^2.4.2",
+    "reflect-metadata": "^0.2.2",
+    "ulid": "^2.3.0"
+  }
+}

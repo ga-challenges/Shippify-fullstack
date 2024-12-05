@@ -78,7 +78,7 @@ const main = async () => {
 
     const PORT = +Env.get('PORT');
     express.listen(PORT, () => { logger.info(
-        `SERVER IS RUNNING ON PORT: ${PORT}`
+        `Server is up and running: http://localhost:${PORT}`
     ); });
 };
 

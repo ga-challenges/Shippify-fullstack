@@ -3,7 +3,7 @@
 
 GITHUB PRINCIPAL: https://github.com/gustavodalves
 
-As variaveis de ambiente estão num exemplo .env.example, no Docker Compose ja tem tudo configurado pra funcionar o projeto
+As variaveis de ambiente estão num exemplo .env.example, no Docker Compose ja tem tudo configurado pra funcionar o projeto, porém precisa criar um arquivo .env com as variaveis de ambiente configuradas., para rodar as Seeders e Migrations.
 
 Este projeto foi desenvolvido como parte de um desafio para demonstrar habilidades de desenvolvimento Full-Stack, com ênfase na modelagem de domínio, arquitetura limpa e boas práticas de software. A aplicação utiliza uma abordagem de Domain-Driven Design (DDD) para modelar as entidades e garantir que a lógica de negócio esteja bem encapsulada.
 
